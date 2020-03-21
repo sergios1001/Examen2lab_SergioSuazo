@@ -1186,7 +1186,7 @@ public class Principal extends javax.swing.JFrame {
         ac=new adminCliente("./clientes.sas");
         ac.cargarArchivo();
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(ac.getListaClientes().get(i).equals(current))
+            if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
             {
                 m=new DefaultComboBoxModel(ac.getListaClientes().get(i).getCuentas().toArray());
             }
@@ -1230,7 +1230,7 @@ public class Principal extends javax.swing.JFrame {
                     ac=new adminCliente("./clientes.sas");
                     ac.cargarArchivo();
                     for (int i = 0; i < ac.getListaClientes().size(); i++) {
-                        if(ac.getListaClientes().get(i).equals(current))
+                        if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                         {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                                 if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
@@ -1277,7 +1277,7 @@ public class Principal extends javax.swing.JFrame {
         ac=new adminCliente("./clientes.sas");
         ac.cargarArchivo();
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(ac.getListaClientes().get(i).equals(current))
+            if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
             {
                 for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                     m.addElement(ac.getListaClientes().get(i).getCuentas().get(j));
@@ -1320,7 +1320,7 @@ public class Principal extends javax.swing.JFrame {
             ac=new adminCliente("./clientes.sas");
             ac.cargarArchivo();
             for (int i = 0; i < ac.getListaClientes().size(); i++) {
-                if(ac.getListaClientes().get(i).equals(current))
+                if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                 {
                     for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                         if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
@@ -1358,7 +1358,7 @@ public class Principal extends javax.swing.JFrame {
         ac=new adminCliente("./clientes.sas");
         ac.cargarArchivo();
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(ac.getListaClientes().get(i).equals(current))
+            if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
             {
                 for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                     m.addElement(ac.getListaClientes().get(i).getCuentas().get(j));
@@ -1370,7 +1370,7 @@ public class Principal extends javax.swing.JFrame {
         ac=new adminCliente("./clientes.sas");
         
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(!ac.getListaClientes().get(i).equals(current))
+            if(!ac.getListaClientes().get(i).getUser().equals(current.getUser()))
             {
                 m1.addElement(ac.getListaClientes().get(i));
             }
@@ -1417,7 +1417,7 @@ public class Principal extends javax.swing.JFrame {
                     ac=new adminCliente("./clientes.sas");
                     ac.cargarArchivo();
                     for (int i = 0; i < ac.getListaClientes().size(); i++) {
-                        if(ac.getListaClientes().get(i).equals(current))
+                        if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                         {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                                 if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
@@ -1470,7 +1470,7 @@ public class Principal extends javax.swing.JFrame {
         ac=new adminCliente("./clientes.sas");
         ac.cargarArchivo();
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(ac.getListaClientes().get(i).equals(current))
+            if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
             {
                 for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                     m.addElement(ac.getListaClientes().get(i).getCuentas().get(j));
@@ -1556,14 +1556,15 @@ public class Principal extends javax.swing.JFrame {
             ac=new adminCliente("./clientes.sas");
             ac.cargarArchivo();
             for (int i = 0; i < ac.getListaClientes().size(); i++) {
-                if(ac.getListaClientes().get(i).equals(current))
+                if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                 {
+                    System.out.println("hola");
                     ac.getListaClientes().get(i).getCuentas().add(c);
                 }
             }
             ac.escribirArchivo();
             ((Cliente)current).getCuentas().add(c);
-        
+
         } catch (Exception e) {
         }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
