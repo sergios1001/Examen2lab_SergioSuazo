@@ -13,17 +13,27 @@ import java.io.Serializable;
  */
 public class Cuenta implements Serializable{
     private int numero,saldo;
-    private String user;
+    private String user,nombre;
 
     public Cuenta() {
     }
 
-    public Cuenta(int numero, int saldo, String user) {
+    public Cuenta(int numero, int saldo, String user, String nombre) {
         this.numero = numero;
         this.saldo = saldo;
         this.user = user;
+        this.nombre = nombre;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    
     public int getNumero() {
         return numero;
     }
@@ -50,7 +60,7 @@ public class Cuenta implements Serializable{
 
     @Override
     public String toString() {
-        return "Cuenta{" + "numero=" + numero + ", saldo=" + saldo + ", user=" + user + '}';
+        return nombre;
     }
     
 }

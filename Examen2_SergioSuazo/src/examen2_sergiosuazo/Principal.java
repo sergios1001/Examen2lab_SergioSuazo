@@ -5,7 +5,10 @@
  */
 package examen2_sergiosuazo;
 
+import com.sun.security.ntlm.Client;
 import java.util.ArrayList;
+import java.util.Random;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -50,6 +53,14 @@ public class Principal extends javax.swing.JFrame {
         dc_afiliacion = new com.toedter.calendar.JDateChooser();
         jButton3 = new javax.swing.JButton();
         jd_Cliente = new javax.swing.JDialog();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jd_Mantenimiento = new javax.swing.JDialog();
         jd_ATM = new javax.swing.JDialog();
         jLabel5 = new javax.swing.JLabel();
@@ -81,6 +92,34 @@ public class Principal extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jl_ATM = new javax.swing.JList<>();
         jButton5 = new javax.swing.JButton();
+        jd_Retirar = new javax.swing.JDialog();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        cb_miCuenta = new javax.swing.JComboBox<>();
+        rb_100 = new javax.swing.JRadioButton();
+        rb_500 = new javax.swing.JRadioButton();
+        jButton9 = new javax.swing.JButton();
+        jLabel28 = new javax.swing.JLabel();
+        bg_retirar = new javax.swing.ButtonGroup();
+        jd_Ingresar = new javax.swing.JDialog();
+        jLabel27 = new javax.swing.JLabel();
+        cb_miCuenta1 = new javax.swing.JComboBox<>();
+        jLabel29 = new javax.swing.JLabel();
+        rb_100i = new javax.swing.JRadioButton();
+        rb_500i = new javax.swing.JRadioButton();
+        jButton10 = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jd_Transferencia = new javax.swing.JDialog();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        sp_monto = new javax.swing.JSpinner();
+        cb_miCuenta2 = new javax.swing.JComboBox<>();
+        cb_transferir = new javax.swing.JComboBox<>();
+        cb_cuentaTransferir = new javax.swing.JComboBox<>();
+        jButton11 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -195,15 +234,65 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jButton6.setText("Retirar Dinero");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
+
+        jButton7.setText("Ingresar Dinero");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
+
+        jButton8.setText("Transferencia");
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton8MouseClicked(evt);
+            }
+        });
+
+        jMenu2.setText("Opciones");
+
+        jMenuItem4.setText("Crear Cuenta");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Ver estado de cuenta");
+        jMenu2.add(jMenuItem5);
+
+        jMenuItem6.setText("Ver Transacciones");
+        jMenu2.add(jMenuItem6);
+
+        jMenuBar2.add(jMenu2);
+
+        jd_Cliente.setJMenuBar(jMenuBar2);
+
         javax.swing.GroupLayout jd_ClienteLayout = new javax.swing.GroupLayout(jd_Cliente.getContentPane());
         jd_Cliente.getContentPane().setLayout(jd_ClienteLayout);
         jd_ClienteLayout.setHorizontalGroup(
             jd_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(jd_ClienteLayout.createSequentialGroup()
+                .addGap(59, 59, 59)
+                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
+                .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                .addGap(89, 89, 89))
         );
         jd_ClienteLayout.setVerticalGroup(
             jd_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(jd_ClienteLayout.createSequentialGroup()
+                .addGap(83, 83, 83)
+                .addGroup(jd_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jd_ClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jd_MantenimientoLayout = new javax.swing.GroupLayout(jd_Mantenimiento.getContentPane());
@@ -227,6 +316,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setText("Registrar un ATM");
 
         jButton2.setText("Crear");
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_ATMLayout = new javax.swing.GroupLayout(jd_ATM.getContentPane());
         jd_ATM.getContentPane().setLayout(jd_ATMLayout);
@@ -404,6 +498,224 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
+        jLabel25.setText("Cuenta:");
+
+        jLabel26.setText("Monto: ");
+
+        bg_retirar.add(rb_100);
+        rb_100.setText("100");
+
+        bg_retirar.add(rb_500);
+        rb_500.setText("500");
+
+        jButton9.setText("Retirar");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setText("Retirar Dinero");
+
+        javax.swing.GroupLayout jd_RetirarLayout = new javax.swing.GroupLayout(jd_Retirar.getContentPane());
+        jd_Retirar.getContentPane().setLayout(jd_RetirarLayout);
+        jd_RetirarLayout.setHorizontalGroup(
+            jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_RetirarLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel25)
+                    .addComponent(jLabel26))
+                .addGroup(jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jd_RetirarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_RetirarLayout.createSequentialGroup()
+                                .addComponent(jButton9)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jd_RetirarLayout.createSequentialGroup()
+                                .addComponent(rb_100)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(rb_500))))
+                    .addGroup(jd_RetirarLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(cb_miCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(jd_RetirarLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(jLabel28)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_RetirarLayout.setVerticalGroup(
+            jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_RetirarLayout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel28)
+                .addGap(18, 18, 18)
+                .addGroup(jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(cb_miCuenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jd_RetirarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(rb_100)
+                    .addComponent(rb_500))
+                .addGap(18, 18, 18)
+                .addComponent(jButton9)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        jLabel27.setText("Cuenta:");
+
+        jLabel29.setText("Monto:");
+
+        bg_retirar.add(rb_100i);
+        rb_100i.setText("100");
+
+        bg_retirar.add(rb_500i);
+        rb_500i.setText("500");
+
+        jButton10.setText("Ingresar");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel30.setText("Ingresar Monto");
+
+        javax.swing.GroupLayout jd_IngresarLayout = new javax.swing.GroupLayout(jd_Ingresar.getContentPane());
+        jd_Ingresar.getContentPane().setLayout(jd_IngresarLayout);
+        jd_IngresarLayout.setHorizontalGroup(
+            jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_IngresarLayout.createSequentialGroup()
+                .addGroup(jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_IngresarLayout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addGroup(jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jd_IngresarLayout.createSequentialGroup()
+                                .addComponent(jLabel27)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cb_miCuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_IngresarLayout.createSequentialGroup()
+                                .addComponent(jLabel29)
+                                .addGap(18, 18, 18)
+                                .addGroup(jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton10)
+                                    .addGroup(jd_IngresarLayout.createSequentialGroup()
+                                        .addComponent(rb_100i)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(rb_500i))))))
+                    .addGroup(jd_IngresarLayout.createSequentialGroup()
+                        .addGap(82, 82, 82)
+                        .addComponent(jLabel30)))
+                .addContainerGap(80, Short.MAX_VALUE))
+        );
+        jd_IngresarLayout.setVerticalGroup(
+            jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_IngresarLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel30)
+                .addGap(18, 18, 18)
+                .addGroup(jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(cb_miCuenta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_IngresarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(rb_100i)
+                    .addComponent(rb_500i))
+                .addGap(18, 18, 18)
+                .addComponent(jButton10)
+                .addContainerGap(33, Short.MAX_VALUE))
+        );
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setText("Transferencia");
+
+        jLabel32.setText("Cuenta:");
+
+        jLabel33.setText("Monto:");
+
+        jLabel34.setText("Persona a la que le transfiere:");
+
+        jLabel35.setText("Cuenta de la persona:");
+
+        cb_transferir.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_transferirItemStateChanged(evt);
+            }
+        });
+
+        jButton11.setText("Transferir");
+
+        javax.swing.GroupLayout jd_TransferenciaLayout = new javax.swing.GroupLayout(jd_Transferencia.getContentPane());
+        jd_Transferencia.getContentPane().setLayout(jd_TransferenciaLayout);
+        jd_TransferenciaLayout.setHorizontalGroup(
+            jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(10, 10, 10)
+                                .addComponent(cb_miCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                                .addComponent(jLabel33)
+                                .addGap(18, 18, 18)
+                                .addComponent(sp_monto, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(60, 60, 60)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(cb_transferir, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cb_cuentaTransferir, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLabel31)))
+                .addGap(54, 54, 54))
+            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                .addGap(234, 234, 234)
+                .addComponent(jButton11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_TransferenciaLayout.setVerticalGroup(
+            jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel31)
+                        .addGap(34, 34, 34)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34)
+                            .addComponent(jLabel35))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(cb_transferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_cuentaTransferir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jd_TransferenciaLayout.createSequentialGroup()
+                        .addGap(77, 77, 77)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cb_miCuenta2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jd_TransferenciaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel33)
+                            .addComponent(sp_monto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addComponent(jButton11)
+                .addGap(22, 22, 22))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -426,6 +738,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton1.setText("Ingresar");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Opciones");
 
@@ -564,7 +881,249 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
+        if(jl_ATM.getSelectedIndex()>=0)
+        {
+            atms=new ArrayList<>();
+            DefaultListModel m = (DefaultListModel)jl_ATM.getModel();
+            atms.add((ATM) m.get(jl_ATM.getSelectedIndex()));
+            m.remove(jl_ATM.getSelectedIndex());
+            jl_ATM.setModel(m);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "no se selecciono ningun atm");
+        }
     }//GEN-LAST:event_jButton5MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+        try {
+            ac=new adminCliente("./clientes.sas");
+            ac.cargarArchivo();
+            for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                if(ac.getListaClientes().get(i).getUser().equals(tf_user.getText()))
+                {
+                    current=ac.getListaClientes().get(i);
+                    atm_actual=(ATM)cb_ATM.getSelectedItem();
+                    break;
+                }
+            }
+            am=new adminMantenimiento("./mantenimiento.sas");
+            am.cargarArchivo();
+            for (int i = 0; i < am.getListaMantenimiento().size(); i++) {
+                if(am.getListaMantenimiento().get(i).getUser().equals(tf_user.getText()))
+                {
+                    current=am.getListaMantenimiento().get(i);
+                    atm_actual=(ATM)cb_ATM.getSelectedItem();
+                    break;
+                }
+            }
+            
+            if(current instanceof Cliente)
+            {
+                jd_Cliente.setVisible(true);
+                jd_Cliente.pack();
+            }
+            else if (current instanceof Mantenimiento)
+            {
+                jd_Mantenimiento.setVisible(true);
+                jd_Mantenimiento.pack();
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "se ingresaron mal los datos");
+            }
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al ingresar los datos");
+        }
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        // TODO add your handling code here:
+        try {
+            int x=999+rand.nextInt(9999);
+            ATM a=new ATM(x, 500, tf_ubicacion.getText(), tf_mantenimiento.getText(), dc_fabricacion.getDate());
+            aa=new adminATM("./ATM.sas");
+            aa.cargarArchivo();
+            aa.setATM(a);
+            aa.escribirArchivo();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al ingresar los datos");
+        }
+    }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        jd_Retirar.setVisible(true);
+        jd_Retirar.pack();
+        DefaultComboBoxModel m=new DefaultComboBoxModel();
+        for (int i = 0; i < ((Cliente)current).getCuentas().size(); i++) {
+            m.addElement(((Cliente)current).getCuentas().get(i));
+        }
+        cb_miCuenta.setModel(m);
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        // TODO add your handling code here:
+        try {
+            Cuenta temp;
+            DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta.getModel();
+            temp=(Cuenta)m.getSelectedItem();
+            int monto=0;
+            
+            if(rb_100.isSelected())
+            {
+                monto=100;
+            }
+            else if(rb_500.isSelected())
+            {
+                monto=500;
+            }
+            if(atm_actual.getDinero()-monto>=0)
+            {
+                if(temp.getSaldo()-monto>=0)
+                {
+                    
+                    aa=new adminATM("./ATM.sas");
+                    aa.cargarArchivo();
+                    for (int i = 0; i < aa.getListaATM().size(); i++) {
+                        if(aa.getListaATM().get(i).equals(atm_actual))
+                        {
+                            aa.getListaATM().get(i).setDinero(aa.getListaATM().get(i).getDinero()-monto);
+                        }
+                    }
+                    aa.escribirArchivo();
+                    ac=new adminCliente("./clientes.sas");
+                    ac.cargarArchivo();
+                    for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                        if(ac.getListaClientes().get(i).equals(current))
+                        {
+                            for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                                {
+                                    ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()-monto);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    ac.escribirArchivo();
+                    JOptionPane.showMessageDialog(this, "retiro exitoso");
+                    jd_Cliente.dispose();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "La cuenta no tiene la cantidad de dinero necesaria");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Disculpe, el ATM no tiene la cantidad de dinero suficiente para realizar esta accion");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al ingresar los datos");
+        }
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        jd_Ingresar.setVisible(true);
+        jd_Ingresar.pack();
+        DefaultComboBoxModel m=new DefaultComboBoxModel();
+        for (int i = 0; i < ((Cliente)current).getCuentas().size(); i++) {
+            m.addElement(((Cliente)current).getCuentas().get(i));
+        }
+        cb_miCuenta1.setModel(m);
+    }//GEN-LAST:event_jButton7MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        // TODO add your handling code here:
+        try {
+            Cuenta temp;
+            DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta1.getModel();
+            temp=(Cuenta)m.getSelectedItem();
+            int monto=0;
+            
+            if(rb_100.isSelected())
+            {
+                monto=100;
+            }
+            else if(rb_500.isSelected())
+            {
+                monto=500;
+            }
+
+            aa=new adminATM("./ATM.sas");
+            aa.cargarArchivo();
+            for (int i = 0; i < aa.getListaATM().size(); i++) {
+                if(aa.getListaATM().get(i).equals(atm_actual))
+                {
+                    aa.getListaATM().get(i).setDinero(aa.getListaATM().get(i).getDinero()+monto);
+                }
+            }
+            aa.escribirArchivo();
+            ac=new adminCliente("./clientes.sas");
+            ac.cargarArchivo();
+            for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                if(ac.getListaClientes().get(i).equals(current))
+                {
+                    for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
+                        if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                        {
+                            ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+            ac.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "ingreso exitoso");
+            jd_Cliente.dispose();
+
+     
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al ingresar los datos");
+        }
+    }//GEN-LAST:event_jButton10MouseClicked
+
+    private void jButton8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseClicked
+        // TODO add your handling code here:
+        jd_Transferencia.setVisible(true);
+        jd_Transferencia.pack();
+        DefaultComboBoxModel m=new DefaultComboBoxModel();
+        for (int i = 0; i < ((Cliente)current).getCuentas().size(); i++) {
+            m.addElement(((Cliente)current).getCuentas().get(i));
+        }
+        cb_miCuenta2.setModel(m);
+        DefaultComboBoxModel m1=new DefaultComboBoxModel();
+        ac=new adminCliente("./clientes.sas");
+        
+        for (int i = 0; i < ac.getListaClientes().size(); i++) {
+            if(!ac.getListaClientes().get(i).equals(current))
+            {
+                m1.addElement(ac.getListaClientes().get(i));
+            }
+        }
+        cb_transferir.setModel(m1);
+    }//GEN-LAST:event_jButton8MouseClicked
+
+    private void cb_transferirItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_transferirItemStateChanged
+        // TODO add your handling code here:
+        if(evt.getStateChange()==2)
+        {
+            Cliente temp;
+            DefaultComboBoxModel m=(DefaultComboBoxModel)cb_transferir.getModel();
+            temp=(Cliente)m.getSelectedItem();
+            DefaultComboBoxModel m1=new DefaultComboBoxModel();
+            for (int i = 0; i < temp.getCuentas().size(); i++) {
+                m1.addElement(temp.getCuentas().get(i));
+            }
+            cb_cuentaTransferir.setModel(m1);
+        }
+    }//GEN-LAST:event_cb_transferirItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -603,17 +1162,29 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup bg_retirar;
     private javax.swing.JComboBox<String> cb_ATM;
+    private javax.swing.JComboBox<String> cb_cuentaTransferir;
+    private javax.swing.JComboBox<String> cb_miCuenta;
+    private javax.swing.JComboBox<String> cb_miCuenta1;
+    private javax.swing.JComboBox<String> cb_miCuenta2;
+    private javax.swing.JComboBox<String> cb_transferir;
     private com.toedter.calendar.JDateChooser dc_afiliacion;
     private com.toedter.calendar.JDateChooser dc_afiliacion1;
     private com.toedter.calendar.JDateChooser dc_fabricacion;
     private com.toedter.calendar.JDateChooser dc_fecha;
     private com.toedter.calendar.JDateChooser dc_fecha1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -631,7 +1202,18 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -639,18 +1221,31 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_ATM;
     private javax.swing.JDialog jd_Cliente;
     private javax.swing.JDialog jd_Crear;
     private javax.swing.JDialog jd_CrearMantenimiento;
+    private javax.swing.JDialog jd_Ingresar;
     private javax.swing.JDialog jd_Mantenimiento;
+    private javax.swing.JDialog jd_Retirar;
+    private javax.swing.JDialog jd_Transferencia;
     private javax.swing.JList<String> jl_ATM;
     private javax.swing.JPasswordField pf_contra;
+    private javax.swing.JRadioButton rb_100;
+    private javax.swing.JRadioButton rb_100i;
+    private javax.swing.JRadioButton rb_500;
+    private javax.swing.JRadioButton rb_500i;
+    private javax.swing.JSpinner sp_monto;
     private javax.swing.JTextField tf_apellido1;
     private javax.swing.JTextField tf_apellido1M;
     private javax.swing.JTextField tf_apellido2;
@@ -675,5 +1270,6 @@ public class Principal extends javax.swing.JFrame {
     adminTransaccion at;
     ArrayList<ATM> atms;
     Usuario current;
-
+    ATM atm_actual;
+    Random rand=new Random();
 }

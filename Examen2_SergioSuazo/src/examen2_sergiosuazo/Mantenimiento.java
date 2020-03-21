@@ -24,7 +24,7 @@ public class Mantenimiento extends Usuario{
 
     @Override
     public String toString() {
-        return "Mantenimiento{" + "atm=" + atm + '}';
+        return super.getNombre1();
     }
     
 }
