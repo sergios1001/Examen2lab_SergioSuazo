@@ -1,0 +1,11 @@
+ser;Ingreso al sistema;20;21;
+ser;Ingreso al sistema;20;21;
+ser;Ingreso al sistema;20;21;
+ser;retiro de dinero;20;21;
+ser;Ingreso al sistema;20;21;
+ser;Ingreso al sistema;20;21;
+ser;Ingreso al sistema;20;21;
+alex;Ingreso al sistema;20;22;
+ser;Ingreso al sistema;20;22;
+ser;Ingreso al sistema;20;22;
+ser;Ingreso al sistema;20;22;

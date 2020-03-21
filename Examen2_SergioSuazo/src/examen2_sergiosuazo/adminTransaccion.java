@@ -75,7 +75,7 @@ public class adminTransaccion {
                 BufferedReader br = new BufferedReader(fr);
                 while ((linea=br.readLine()) != null) {
                     String[] tokens = linea.split(";");
-                    listaTransaccion.add(new Transaccion(Integer.parseInt(tokens[0]),Integer.parseInt(tokens[1]), tokens[2],tokens[3]));
+                    listaTransaccion.add(new Transaccion(tokens[0],Integer.parseInt(tokens[1]), tokens[2],tokens[3]));
                 }
             } catch (Exception e) {
                 e.printStackTrace();
