@@ -1066,13 +1066,14 @@ public class Principal extends javax.swing.JFrame {
             m.addElement(aa.getListaATM().get(i));
         }
         jl_ATM.setModel(m);
+        atms=new ArrayList<>();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
         if(jl_ATM.getSelectedIndex()>=0)
         {
-            atms=new ArrayList<>();
+            
             DefaultListModel m = (DefaultListModel)jl_ATM.getModel();
             atms.add((ATM) m.get(jl_ATM.getSelectedIndex()));
             m.remove(jl_ATM.getSelectedIndex());
@@ -1113,6 +1114,7 @@ public class Principal extends javax.swing.JFrame {
                             break;
                         }
                     }
+                    break;
                 }
             }
             
@@ -1300,11 +1302,11 @@ public class Principal extends javax.swing.JFrame {
             int x=999+rand.nextInt(9999);
             int monto=0;
             
-            if(rb_100.isSelected())
+            if(rb_100i.isSelected())
             {
                 monto=100;
             }
-            else if(rb_500.isSelected())
+            else if(rb_500i.isSelected())
             {
                 monto=500;
             }
@@ -1323,9 +1325,11 @@ public class Principal extends javax.swing.JFrame {
             for (int i = 0; i < ac.getListaClientes().size(); i++) {
                 if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                 {
+                    System.out.println("hola");
                     for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                         if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
                         {
+                            System.out.println("hola2");
                             ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
                             Transaccion t = new Transaccion(((Cliente)current).getCuentas().get(j).getNombre(), x, "Ingreso de dinero a la cuenta", new Date().toString());
                             at=new adminTransaccion("./transacciones.txt");
@@ -1369,13 +1373,18 @@ public class Principal extends javax.swing.JFrame {
         }
         cb_miCuenta2.setModel(m);
         DefaultComboBoxModel m1=new DefaultComboBoxModel();
-        ac=new adminCliente("./clientes.sas");
         
         for (int i = 0; i < ac.getListaClientes().size(); i++) {
-            if(!ac.getListaClientes().get(i).getUser().equals(current.getUser()))
-            {
-                m1.addElement(ac.getListaClientes().get(i));
-            }
+             if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
+             {
+                 
+             }
+             else
+             {
+                 m1.addElement(ac.getListaClientes().get(i));
+             }
+            
+           
         }
         cb_transferir.setModel(m1);
         jd_Transferencia.setVisible(true);
@@ -1407,14 +1416,15 @@ public class Principal extends javax.swing.JFrame {
             DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta2.getModel();
             temp=(Cuenta)m.getSelectedItem();
             DefaultComboBoxModel m1=(DefaultComboBoxModel)cb_transferir.getModel();
-            tempC=(Cliente)m.getSelectedItem();
+            tempC=(Cliente)m1.getSelectedItem();
             DefaultComboBoxModel m2=(DefaultComboBoxModel)cb_cuentaTransferir.getModel();
-            temp2=(Cuenta)m.getSelectedItem();
+            temp2=(Cuenta)m2.getSelectedItem();
             
             int monto=(Integer)sp_monto.getValue();
-
+            System.out.println("hola1");
                 if(temp.getSaldo()-monto>=0)
                 {
+                    System.out.println("hola");
                     aa.escribirArchivo();
                     ac=new adminCliente("./clientes.sas");
                     ac.cargarArchivo();
@@ -1424,6 +1434,7 @@ public class Principal extends javax.swing.JFrame {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                                 if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
                                 {
+                                    System.out.println("hola2");
                                     ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()-monto);
                                     Transaccion t = new Transaccion(ac.getListaClientes().get(i).getCuentas().get(j).getNombre(), x, "Transferencia a otra cuenta", new Date().toString());
                                     ac.getListaClientes().get(i).getMistransacciones().add(t);
@@ -1440,9 +1451,12 @@ public class Principal extends javax.swing.JFrame {
                     for (int i = 0; i < ac.getListaClientes().size(); i++) {
                         if(ac.getListaClientes().get(i).getUser().equals(tempC.getUser()))
                         {
+                            System.out.println("hola3");
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
                                 if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp2.getNombre()))
                                 {
+                                    System.out.println("hola4"
+                                            + "");
                                     ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
                                     break;
                                 }
@@ -1493,7 +1507,20 @@ public class Principal extends javax.swing.JFrame {
             Cuenta temp;
             DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta3.getModel();
             temp=(Cuenta)m.getSelectedItem();
-            tf_miSaldo.setText(temp.getSaldo()+" Lps");
+            ac=new adminCliente("./clientes.sas");
+            ac.cargarArchivo();
+            for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
+                {
+                    for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
+                        if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
+                        {
+                            tf_miSaldo.setText(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+" Lps");
+                        }
+                    }
+                }
+            }
+            
         }
     }//GEN-LAST:event_cb_miCuenta3ItemStateChanged
 

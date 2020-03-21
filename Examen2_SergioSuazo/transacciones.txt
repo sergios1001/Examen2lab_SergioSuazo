@@ -1,1 +1,8 @@
 cuenta12;7034;Retiro de dinero;Fri Mar 20 23:04:17 CST 2020;
+cuentaA;4428;Retiro de dinero;Fri Mar 20 23:36:48 CST 2020;
+cuentaB;7142;Ingreso de dinero a la cuenta;Fri Mar 20 23:37:12 CST 2020;
+cuentaB;4546;Ingreso de dinero a la cuenta;Fri Mar 20 23:40:53 CST 2020;
+cuentaB;1253;Ingreso de dinero a la cuenta;Fri Mar 20 23:43:11 CST 2020;
+cuenta12;3800;Ingreso de dinero a la cuenta;Fri Mar 20 23:49:43 CST 2020;
+cuenta12;5664;Ingreso de dinero a la cuenta;Fri Mar 20 23:51:10 CST 2020;
+cuenta;9115;Transferencia a otra cuenta;Sat Mar 21 00:04:50 CST 2020;
