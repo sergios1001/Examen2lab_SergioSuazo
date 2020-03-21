@@ -11,6 +11,7 @@ import java.util.Random;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -120,6 +121,14 @@ public class Principal extends javax.swing.JFrame {
         cb_transferir = new javax.swing.JComboBox<>();
         cb_cuentaTransferir = new javax.swing.JComboBox<>();
         jButton11 = new javax.swing.JButton();
+        jd_EstadoCuenta = new javax.swing.JDialog();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        cb_miCuenta3 = new javax.swing.JComboBox<>();
+        tf_miSaldo = new javax.swing.JTextField();
+        jd_Transacciones = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jt_transacciones = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -261,9 +270,19 @@ public class Principal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem4);
 
         jMenuItem5.setText("Ver estado de cuenta");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem5);
 
         jMenuItem6.setText("Ver Transacciones");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem6);
 
         jMenuBar2.add(jMenu2);
@@ -650,6 +669,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         jButton11.setText("Transferir");
+        jButton11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton11MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jd_TransferenciaLayout = new javax.swing.GroupLayout(jd_Transferencia.getContentPane());
         jd_Transferencia.getContentPane().setLayout(jd_TransferenciaLayout);
@@ -714,6 +738,82 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addComponent(jButton11)
                 .addGap(22, 22, 22))
+        );
+
+        jLabel36.setText("Cuenta:");
+
+        jLabel37.setText("Saldo:");
+
+        cb_miCuenta3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_miCuenta3ItemStateChanged(evt);
+            }
+        });
+
+        tf_miSaldo.setEditable(false);
+
+        javax.swing.GroupLayout jd_EstadoCuentaLayout = new javax.swing.GroupLayout(jd_EstadoCuenta.getContentPane());
+        jd_EstadoCuenta.getContentPane().setLayout(jd_EstadoCuentaLayout);
+        jd_EstadoCuentaLayout.setHorizontalGroup(
+            jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EstadoCuentaLayout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addGroup(jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel36)
+                    .addComponent(jLabel37))
+                .addGap(18, 18, 18)
+                .addGroup(jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cb_miCuenta3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tf_miSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        jd_EstadoCuentaLayout.setVerticalGroup(
+            jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_EstadoCuentaLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel36)
+                    .addComponent(cb_miCuenta3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(jd_EstadoCuentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(tf_miSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+
+        jt_transacciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Cuenta", "Accion", "Fecha"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jt_transacciones);
+
+        javax.swing.GroupLayout jd_TransaccionesLayout = new javax.swing.GroupLayout(jd_Transacciones.getContentPane());
+        jd_Transacciones.getContentPane().setLayout(jd_TransaccionesLayout);
+        jd_TransaccionesLayout.setHorizontalGroup(
+            jd_TransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_TransaccionesLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        jd_TransaccionesLayout.setVerticalGroup(
+            jd_TransaccionesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_TransaccionesLayout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -827,8 +927,11 @@ public class Principal extends javax.swing.JFrame {
 
     private void cb_ATMItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_ATMItemStateChanged
         // TODO add your handling code here:
-        tf_user.setEnabled(true);
-        pf_contra.setEnabled(true);
+        if(evt.getStateChange()==2)
+        {
+            tf_user.setEnabled(true);
+            pf_contra.setEnabled(true);
+        }
     }//GEN-LAST:event_cb_ATMItemStateChanged
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -877,6 +980,13 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         jd_CrearMantenimiento.setVisible(true);
         jd_CrearMantenimiento.pack();
+        DefaultListModel m=new DefaultListModel();
+        aa=new adminATM("./ATM.sas");
+        aa.cargarArchivo();
+        for (int i = 0; i < aa.getListaATM().size(); i++) {
+            m.addElement(aa.getListaATM().get(i));
+        }
+        jl_ATM.setModel(m);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -898,6 +1008,7 @@ public class Principal extends javax.swing.JFrame {
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         try {
+            boolean login=false;
             ac=new adminCliente("./clientes.sas");
             ac.cargarArchivo();
             for (int i = 0; i < ac.getListaClientes().size(); i++) {
@@ -905,6 +1016,7 @@ public class Principal extends javax.swing.JFrame {
                 {
                     current=ac.getListaClientes().get(i);
                     atm_actual=(ATM)cb_ATM.getSelectedItem();
+                    login=true;
                     break;
                 }
             }
@@ -915,19 +1027,29 @@ public class Principal extends javax.swing.JFrame {
                 {
                     current=am.getListaMantenimiento().get(i);
                     atm_actual=(ATM)cb_ATM.getSelectedItem();
-                    break;
+                    for (int j = 0; j < am.getListaMantenimiento().get(i).getAtm().size(); j++) {
+                        if(am.getListaMantenimiento().get(i).getAtm().get(j).equals(atm_actual))
+                        {
+                            login=true;
+                            break;
+                        }
+                    }
                 }
             }
             
-            if(current instanceof Cliente)
+            if(current instanceof Cliente && login)
             {
                 jd_Cliente.setVisible(true);
                 jd_Cliente.pack();
             }
-            else if (current instanceof Mantenimiento)
+            else if (current instanceof Mantenimiento && login)
             {
                 jd_Mantenimiento.setVisible(true);
                 jd_Mantenimiento.pack();
+            }
+            else if(current instanceof Mantenimiento && !login)
+            {
+                JOptionPane.showMessageDialog(this, "El usuario de mantenimiento no tiene permiso de entrar a este ATM, seleccione uno nuevo");
             }
             else
             {
@@ -1125,6 +1247,106 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cb_transferirItemStateChanged
 
+    private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
+        // TODO add your handling code here:
+        try {
+            Cuenta temp,temp2;
+            Cliente tempC;
+            
+            DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta2.getModel();
+            temp=(Cuenta)m.getSelectedItem();
+            DefaultComboBoxModel m1=(DefaultComboBoxModel)cb_transferir.getModel();
+            tempC=(Cliente)m.getSelectedItem();
+            DefaultComboBoxModel m2=(DefaultComboBoxModel)cb_cuentaTransferir.getModel();
+            temp2=(Cuenta)m.getSelectedItem();
+            
+            int monto=(Integer)sp_monto.getValue();
+
+                if(temp.getSaldo()-monto>=0)
+                {
+                    aa.escribirArchivo();
+                    ac=new adminCliente("./clientes.sas");
+                    ac.cargarArchivo();
+                    for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                        if(ac.getListaClientes().get(i).equals(current))
+                        {
+                            for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                                {
+                                    ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()-monto);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    for (int i = 0; i < ac.getListaClientes().size(); i++) {
+                        if(ac.getListaClientes().get(i).equals(tempC))
+                        {
+                            for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp2))
+                                {
+                                    ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                    ac.escribirArchivo();
+                    JOptionPane.showMessageDialog(this, "transferencia exitosa");
+                    jd_Cliente.dispose();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(this, "La cuenta no tiene la cantidad de dinero necesaria");
+                }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Ocurrio un error al ingresar los datos");
+        }
+    }//GEN-LAST:event_jButton11MouseClicked
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        jd_EstadoCuenta.setVisible(true);
+        jd_EstadoCuenta.pack();
+        DefaultComboBoxModel m=new DefaultComboBoxModel();
+        for (int i = 0; i < ((Cliente)current).getCuentas().size(); i++) {
+            m.addElement(((Cliente)current).getCuentas().get(i));
+        }
+        cb_miCuenta3.setModel(m);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void cb_miCuenta3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_miCuenta3ItemStateChanged
+        // TODO add your handling code here:
+        if(evt.getStateChange()==2)
+        {
+            Cuenta temp;
+            DefaultComboBoxModel m=(DefaultComboBoxModel)cb_miCuenta3.getModel();
+            temp=(Cuenta)m.getSelectedItem();
+            tf_miSaldo.setText(temp.getSaldo()+" Lps");
+        }
+    }//GEN-LAST:event_cb_miCuenta3ItemStateChanged
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        jd_Transacciones.setVisible(true);
+        jd_Transacciones.pack();
+        DefaultTableModel m = new DefaultTableModel();
+        m.addColumn("Cuenta");
+        m.addColumn("Accion");
+        m.addColumn("Fecha");
+        for (int i = 0; i < ((Cliente)current).getMistransacciones().size(); i++) {
+            Object[] newrow={
+                ((Cliente)current).getMistransacciones().get(i).getCuenta(),
+                ((Cliente)current).getMistransacciones().get(i).getAccion(),
+                ((Cliente)current).getMistransacciones().get(i).getFecha()
+            };
+            m.addRow(newrow);
+        }
+        jt_transacciones.setModel(m);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1168,6 +1390,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_miCuenta;
     private javax.swing.JComboBox<String> cb_miCuenta1;
     private javax.swing.JComboBox<String> cb_miCuenta2;
+    private javax.swing.JComboBox<String> cb_miCuenta3;
     private javax.swing.JComboBox<String> cb_transferir;
     private com.toedter.calendar.JDateChooser dc_afiliacion;
     private com.toedter.calendar.JDateChooser dc_afiliacion1;
@@ -1214,6 +1437,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1231,15 +1456,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jd_ATM;
     private javax.swing.JDialog jd_Cliente;
     private javax.swing.JDialog jd_Crear;
     private javax.swing.JDialog jd_CrearMantenimiento;
+    private javax.swing.JDialog jd_EstadoCuenta;
     private javax.swing.JDialog jd_Ingresar;
     private javax.swing.JDialog jd_Mantenimiento;
     private javax.swing.JDialog jd_Retirar;
+    private javax.swing.JDialog jd_Transacciones;
     private javax.swing.JDialog jd_Transferencia;
     private javax.swing.JList<String> jl_ATM;
+    private javax.swing.JTable jt_transacciones;
     private javax.swing.JPasswordField pf_contra;
     private javax.swing.JRadioButton rb_100;
     private javax.swing.JRadioButton rb_100i;
@@ -1253,6 +1482,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField tf_contra;
     private javax.swing.JTextField tf_contra1;
     private javax.swing.JTextField tf_mantenimiento;
+    private javax.swing.JTextField tf_miSaldo;
     private javax.swing.JTextField tf_nombre1;
     private javax.swing.JTextField tf_nombre1M;
     private javax.swing.JTextField tf_nombre2;

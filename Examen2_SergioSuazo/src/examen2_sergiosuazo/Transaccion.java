@@ -13,25 +13,25 @@ import java.util.Date;
  * @author Workstation DSY
  */
 public class Transaccion implements Serializable{
-    private int cuenta,id;
-    private String accion,fecha;
+    private int id;
+    private String cuenta,accion,fecha;
 
 
     public Transaccion() {
     }
 
-    public Transaccion(int cuenta, int id, String accion, String fecha) {
+    public Transaccion(String cuenta, int id, String accion, String fecha) {
         this.cuenta = cuenta;
         this.id = id;
         this.accion = accion;
         this.fecha = fecha;
     }
 
-    public int getCuenta() {
+    public String getCuenta() {
         return cuenta;
     }
 
-    public void setCuenta(int cuenta) {
+    public void setCuenta(String cuenta) {
         this.cuenta = cuenta;
     }
 
