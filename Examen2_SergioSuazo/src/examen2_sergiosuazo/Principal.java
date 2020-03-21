@@ -1107,7 +1107,7 @@ public class Principal extends javax.swing.JFrame {
                     current=am.getListaMantenimiento().get(i);
                     atm_actual=(ATM)cb_ATM.getSelectedItem();
                     for (int j = 0; j < am.getListaMantenimiento().get(i).getAtm().size(); j++) {
-                        if(am.getListaMantenimiento().get(i).getAtm().get(j).equals(atm_actual))
+                        if(am.getListaMantenimiento().get(i).getAtm().get(j).getUbicacion().equals(atm_actual.getUbicacion()))
                         {
                             login=true;
                             break;
@@ -1221,7 +1221,7 @@ public class Principal extends javax.swing.JFrame {
                     aa=new adminATM("./ATM.sas");
                     aa.cargarArchivo();
                     for (int i = 0; i < aa.getListaATM().size(); i++) {
-                        if(aa.getListaATM().get(i).equals(atm_actual))
+                        if(aa.getListaATM().get(i).getUbicacion().equals(atm_actual.getUbicacion()))
                         {
                             aa.getListaATM().get(i).setDinero(aa.getListaATM().get(i).getDinero()-monto);
                         }
@@ -1233,7 +1233,7 @@ public class Principal extends javax.swing.JFrame {
                         if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                         {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
-                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
                                 {
                                     ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()-monto);
                                     Transaccion t = new Transaccion( ac.getListaClientes().get(i).getCuentas().get(j).getNombre(), x, "Retiro de dinero", new Date().toString());
@@ -1256,6 +1256,7 @@ public class Principal extends javax.swing.JFrame {
                     al.escribirArchivo();
                     JOptionPane.showMessageDialog(this, "retiro exitoso");
                     jd_Cliente.dispose();
+                    jd_Retirar.setVisible(false);
                 }
                 else
                 {
@@ -1311,7 +1312,7 @@ public class Principal extends javax.swing.JFrame {
             aa=new adminATM("./ATM.sas");
             aa.cargarArchivo();
             for (int i = 0; i < aa.getListaATM().size(); i++) {
-                if(aa.getListaATM().get(i).equals(atm_actual))
+                if(aa.getListaATM().get(i).getUbicacion().equals(atm_actual.getUbicacion()))
                 {
                     aa.getListaATM().get(i).setDinero(aa.getListaATM().get(i).getDinero()+monto);
                 }
@@ -1323,7 +1324,7 @@ public class Principal extends javax.swing.JFrame {
                 if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                 {
                     for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
-                        if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                        if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
                         {
                             ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
                             Transaccion t = new Transaccion(((Cliente)current).getCuentas().get(j).getNombre(), x, "Ingreso de dinero a la cuenta", new Date().toString());
@@ -1345,6 +1346,7 @@ public class Principal extends javax.swing.JFrame {
             ac.escribirArchivo();
             JOptionPane.showMessageDialog(this, "ingreso exitoso");
             jd_Cliente.dispose();
+            jd_Ingresar.setVisible(false);
 
      
         } catch (Exception e) {
@@ -1420,7 +1422,7 @@ public class Principal extends javax.swing.JFrame {
                         if(ac.getListaClientes().get(i).getUser().equals(current.getUser()))
                         {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
-                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp))
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp.getNombre()))
                                 {
                                     ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()-monto);
                                     Transaccion t = new Transaccion(ac.getListaClientes().get(i).getCuentas().get(j).getNombre(), x, "Transferencia a otra cuenta", new Date().toString());
@@ -1436,10 +1438,10 @@ public class Principal extends javax.swing.JFrame {
                         }
                     }
                     for (int i = 0; i < ac.getListaClientes().size(); i++) {
-                        if(ac.getListaClientes().get(i).equals(tempC))
+                        if(ac.getListaClientes().get(i).getUser().equals(tempC.getUser()))
                         {
                             for (int j = 0; j < ac.getListaClientes().get(i).getCuentas().size(); j++) {
-                                if(ac.getListaClientes().get(i).getCuentas().get(j).equals(temp2))
+                                if(ac.getListaClientes().get(i).getCuentas().get(j).getNombre().equals(temp2.getNombre()))
                                 {
                                     ac.getListaClientes().get(i).getCuentas().get(j).setSaldo(ac.getListaClientes().get(i).getCuentas().get(j).getSaldo()+monto);
                                     break;
@@ -1452,6 +1454,7 @@ public class Principal extends javax.swing.JFrame {
                     ac.escribirArchivo();
                     JOptionPane.showMessageDialog(this, "transferencia exitosa");
                     jd_Cliente.dispose();
+                    jd_Transferencia.setVisible(false);
                     
                 }
                 else
@@ -1519,17 +1522,22 @@ public class Principal extends javax.swing.JFrame {
             int monto;
         String pass="";
         monto=(Integer)sp_100.getValue()*100+(Integer)sp_500.getValue()*500;
+            System.out.println(monto);
+            System.out.println(atm_actual.getUbicacion());
         aa=new adminATM("./ATM.sas");
         for (int i = 0; i < aa.getListaATM().size(); i++) {
-            if(aa.getListaATM().get(i).equals(atm_actual))
+            if(aa.getListaATM().get(i).getUbicacion().equals(atm_actual.getUbicacion()))
             {
                aa.getListaATM().get(i).setDinero(aa.getListaATM().get(i).getDinero()+monto);
             }
+        }
+            System.out.println("hola");
             pass=JOptionPane.showInputDialog("Ingrese su clave para finalizar la transaccion y cerrar el sistema: ");
             while(!pass.equals(current.getContra()))
             {
                 pass=JOptionPane.showInputDialog("Clave incorrecta, ingresela nuevamente: ");
             }
+            System.out.println("hola 2");
             Log l = new Log(current.getUser(), "Mantenimiento del ATM", String.valueOf(new Date().getDate()), String.valueOf(new Date().getHours()));
                     al=new adminLog("./log.txt");
                     al.cargarArchivo();
@@ -1538,7 +1546,8 @@ public class Principal extends javax.swing.JFrame {
             jd_Mantenimiento.setVisible(false);
             sp_100.setValue(0);
             sp_500.setValue(0);
-        }
+        
+            
         } catch (Exception e) {
         }
         
